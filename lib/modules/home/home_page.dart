@@ -12,7 +12,10 @@ class HomePage extends GetView<HomeController> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("укажите свой ник"),
+          Text(
+            "Укажите свой ник",
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
           TextField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
