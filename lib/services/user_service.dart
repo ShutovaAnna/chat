@@ -4,9 +4,15 @@ import 'package:get/get.dart';
 class UserService extends GetxService {
   static UserService get to => Get.find();
 
-  Future<UserService> init() async {
+  String username = "";
+  RxList messages = [].obs;
 
+  Future<UserService> init() async {
     return this;
   }
 
+  void setUsernameAndConnect(String user) {
+    username = user;
+    SocketService.to.connect();
+  }
 }

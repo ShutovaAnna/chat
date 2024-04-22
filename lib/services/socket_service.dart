@@ -1,3 +1,4 @@
+import 'package:chat/routes/pages.dart';
 import 'package:get/get.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
@@ -15,7 +16,10 @@ class SocketService extends GetxService {
           .build(),
     );
 
-    _socket.onConnect((data) => printInfo(info: "Socket connected"));
+    _socket.onConnect((data) {
+      printInfo(info: "Socket connected");
+      Get.offNamed(Routes.CHAT);
+    });
     _socket.onDisconnect((data) => printInfo(info: "Disconected"));
     _socket.onConnectError((data) => printInfo(info: "Connection error"));
     _socket.onAny((event, data) => printInfo(info: "event: $event \t $data"));

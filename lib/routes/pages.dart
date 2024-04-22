@@ -1,3 +1,5 @@
+import 'package:chat/modules/chat/chat_binding.dart';
+import 'package:chat/modules/chat/chat_page.dart';
 import 'package:chat/modules/home/home_binding.dart';
 import 'package:chat/modules/home/home_page.dart';
 import 'package:get/get.dart';
@@ -9,6 +11,11 @@ abstract class AppPages {
       name: Routes.HOME,
       page: () => HomePage(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.CHAT,
+      page: () => ChatPage(),
+      binding: ChatBinding(),
     ),
   ];
 }
