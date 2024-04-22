@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  await initServices();
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: Routes.HOME,
@@ -9,4 +10,4 @@ void main() {
   ));
 }
 
-
+Future<void> initServices() async {}
