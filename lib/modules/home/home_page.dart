@@ -17,6 +17,9 @@ class HomePage extends GetView<HomeController> {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           TextField(
+            controller: controller.textCtrl,
+            onSubmitted: (value) => controller.signIn(),
+            
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               filled: true,
