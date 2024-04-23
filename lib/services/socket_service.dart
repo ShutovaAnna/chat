@@ -8,6 +8,8 @@ import 'package:socket_io_client/socket_io_client.dart';
 class SocketService extends GetxService {
   static SocketService get to => Get.find();
   late Socket _socket;
+
+  String get clientId => _socket.id ?? "";
   Future<SocketService> init() async {
     _socket = io(
       'https://masqed.ru',
@@ -33,13 +35,13 @@ class SocketService extends GetxService {
 
     _socket.onConnectError((data) => printInfo(info: "Connection error"));
 
-    _socket.onAny((event, data) { 
-      var isKnown = SocketEvent.values.any((el) => el.name == event); 
-      if (!isKnown) return; 
-      data['type'] = event; 
-      var message = ChatMessage.fromJson(data); 
-      UserService.to.addMessageToList(message); 
-    }); 
+    _socket.onAny((event, data) {
+      var isKnown = SocketEvent.values.any((el) => el.name == event);
+      if (!isKnown) return;
+      data['type'] = event;
+      var message = ChatMessage.fromJson(data);
+      UserService.to.addMessageToList(message);
+    });
 
     return this;
   }
@@ -60,4 +62,7 @@ class SocketService extends GetxService {
     _socket.emit(SocketEvent.logout.name);
   }
 
+  void sendMessageToChat(String message) {
+    _socket.emit(SocketEvent.newMessage.name, message);
+  }
 }

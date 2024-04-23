@@ -23,7 +23,7 @@ class HomePage extends GetView<HomeController> {
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               filled: true,
-              fillColor: Color.fromARGB(255, 158, 244, 255),
+              fillColor: const Color.fromARGB(124, 158, 158, 158),
             ),
           ),
         ],
