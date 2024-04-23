@@ -1,5 +1,5 @@
 import 'package:chat/models/socket_event.dart';
-import 'package:chat/modules/chat/widjets/bubble.dart';
+import 'package:chat/modules/chat/widgets/bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
